@@ -1,0 +1,16 @@
+<launch>
+ <arg name="lidar_type" value="$(env LIDAR_TYPE)"/>
+
+ <group if="$(eval arg('lidar_type') == 'XAS')">
+	<include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+ </group>
+
+
+ <group if="$(eval arg('lidar_type') == 'XT1')">
+	<include file="$(find sc_mini)/launch/start.launch"/>
+ </group>
+
+ <group if="$(eval arg('lidar_type') == 'YT1')">
+	<include file="$(find sc_mini)/launch/start.launch"/>
+ </group>
+</launch>
